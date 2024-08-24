@@ -27,6 +27,7 @@ cd frontend
 npx tauri init
 npm install @tauri-apps/cli @tauri-apps/api
 
+# for npm run tauri:dev
 sudo apt update
 sudo apt install build-essential
 rustup update
@@ -34,6 +35,10 @@ sudo apt install pkg-config
 sudo apt-get install libsoup2.4-dev
 sudo apt-get install libwebkit2gtk-4.0-dev
 
+# for npm run tauri:build
+sudo apt-get update
+sudo apt-get install fuse libfuse2 zsync desktop-file-utils
+sudo apt-get install librsvg2-dev
 # packages.json 수동으로 수정필요, tauri:dev, tauri:build 추가
 # "scripts": {
 #   "dev": "next dev",               // Next.js 개발 서버 실행
