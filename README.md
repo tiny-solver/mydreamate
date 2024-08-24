@@ -30,6 +30,9 @@ npm install @tauri-apps/cli @tauri-apps/api
 sudo apt update
 sudo apt install build-essential
 rustup update
+sudo apt install pkg-config
+sudo apt-get install libsoup2.4-dev
+sudo apt-get install libwebkit2gtk-4.0-dev
 
 # packages.json 수동으로 수정필요, tauri:dev, tauri:build 추가
 # "scripts": {
