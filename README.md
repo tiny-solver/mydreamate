@@ -5,8 +5,18 @@
 # Stacks
 
 ## frontend
+
 - 'react'
 - 'tauri'
+
+#### deploy frontend to webapp
+
+```bash
+cd frontend
+yarn build
+npx serve@latest out
+```
+#### deploy frontend to tauri app
 
 ## backend
 
