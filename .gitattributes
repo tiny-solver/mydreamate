@@ -1,0 +1,28 @@
+###################################################################
+### Explicitly declare text files you want to always be normalized and converted
+### to native line endings on checkout.
+###################################################################
+*.c text
+*.h text
+
+###################################################################
+### blob
+### Denote all files that are truly binary and should not be modified.
+###################################################################
+*.png binary
+*.jpg binary
+
+###################################################################
+### Linux Specific
+###################################################################
+*.sh text eol=lf
+*.zsh text eol=lf
+
+###################################################################
+### Windows Specific
+###################################################################
+# Declare files that will always have CRLF line endings on checkout.
+*.sln text eol=crlf
+*.ps1 text eol=crlf
+*.bat text eol=crlf
+*.cmd text eol=crlf
