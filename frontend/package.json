@@ -11,6 +11,7 @@
     "tauri:build": "tauri build"
   },
   "dependencies": {
+    "@radix-ui/react-slot": "^1.1.0",
     "@tauri-apps/api": "^1.6.0",
     "@tauri-apps/cli": "^1.6.1",
     "class-variance-authority": "^0.7.0",
