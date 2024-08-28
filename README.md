@@ -7,7 +7,14 @@
 ## frontend
 
 - 'react'
+> npm run tauri:dev
 - 'tauri'
+> npm run dev
+
+## backend
+
+- 'convex'
+> npx convex dev
 
 #### deploy frontend to webapp
 
