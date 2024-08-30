@@ -11,6 +11,8 @@
     "tauri:build": "tauri build"
   },
   "dependencies": {
+    "@auth/core": "^0.34.2",
+    "@convex-dev/auth": "^0.0.61",
     "@radix-ui/react-separator": "^1.1.0",
     "@radix-ui/react-slot": "^1.1.0",
     "@tauri-apps/api": "^1.6.0",
