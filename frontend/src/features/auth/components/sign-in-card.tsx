@@ -3,6 +3,7 @@ import { Card, CardDescription, CardHeader, CardContent, CardTitle } from "@/com
 import { Input } from "@/components/ui/input"
 import { Separator } from "@/components/ui/separator"
 import { FaGithub } from "react-icons/fa"
+import { FaGitlab } from "react-icons/fa6"
 import { FcGoogle } from "react-icons/fc"
 import { SignInFlow } from "../types"
 import { useState } from "react"
@@ -15,10 +16,14 @@ interface SignInCardProps {
 export const SignInCard = ({ setState }: SignInCardProps) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [pending, setPending] = useState(false);
   const { signIn } = useAuthActions();
 
-  const handleProviderSignin = (value: "github" | "google") => {
-    signIn(value);
+  const onProviderSignIn = (value: "github" | "gitlab" | "google") => {
+    console.log("clicked SignIn With", value);
+    setPending(true);
+    signIn(value)
+      .finally(() => setPending(false));
   }
 
   return (
@@ -34,7 +39,7 @@ export const SignInCard = ({ setState }: SignInCardProps) => {
       <CardContent className="space-y-5 px-0 pb-0">
         <form className="space-y-2.5">
           <Input
-            disabled={false}
+            disabled={pending}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Email"
@@ -42,7 +47,7 @@ export const SignInCard = ({ setState }: SignInCardProps) => {
             required
           />
           <Input
-            disabled={false}
+            disabled={pending}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Password"
@@ -56,8 +61,8 @@ export const SignInCard = ({ setState }: SignInCardProps) => {
         <Separator />
         <div className="flex flex-col gap-y-2.5">
           <Button
-            disabled={false}
-            onClick={() => handleProviderSignin("google")}
+            disabled={pending}
+            onClick={() => onProviderSignIn("google")}
             variant="outline"
             size="lg"
             className="w-full relative">
@@ -65,8 +70,17 @@ export const SignInCard = ({ setState }: SignInCardProps) => {
             Continue with Google
           </Button>
           <Button
-            disabled={false}
-            onClick={() => handleProviderSignin("github")}
+            disabled={pending}
+            onClick={() => onProviderSignIn("gitlab")}
+            variant="outline"
+            size="lg"
+            className="w-full relative">
+            <FaGitlab className="size-5 absolute top-2.5 left-2.5" />
+            Continue with Gitlab
+          </Button>
+          <Button
+            disabled={pending}
+            onClick={() => onProviderSignIn("github")}
             variant="outline"
             size="lg"
             className="w-full relative">
